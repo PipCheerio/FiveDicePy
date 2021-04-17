@@ -10,7 +10,8 @@ while True:
 
     state = Model(Random.random_hand(), Random.random_hand())
 
-    print(state.player, state.dealer)
+    print({'player': state.player, 'dealer':state.dealer})
+
     p = CountOccurences(state.player)
     d = CountOccurences(state.dealer)
 
