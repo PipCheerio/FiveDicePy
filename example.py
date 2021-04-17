@@ -1,17 +1,24 @@
 # example.py
-from FiveDiceCore import Model, Random, CountOccurences, EvaluatePower
+from FiveDiceCore import Model, Random, CountOccurences, EvaluatePower, WhoWins
 
-state = Model(Random.random_hand(), Random.random_hand())
+# Unit testing example
+# Loop infinite to find any bugs
 
 
-print(state.player, state.dealer)
+while True:
+    # make class inheritence more intuitive
 
-p = CountOccurences(state.player)
-d = CountOccurences(state.dealer)
+    state = Model(Random.random_hand(), Random.random_hand())
 
-print(p.counted, d.counted)
+    print(state.player, state.dealer)
+    p = CountOccurences(state.player)
+    d = CountOccurences(state.dealer)
 
-p_pow = EvaluatePower(p)
-d_pow = EvaluatePower(d)
+    p_pow = EvaluatePower(p)
+    d_pow = EvaluatePower(d)
 
-print(p_pow.power, d_pow.power)
+    w = (WhoWins(p_pow.power, d_pow.power))
+    
+    print(w.__dict__)
+
+    input("Press any key to continue")
